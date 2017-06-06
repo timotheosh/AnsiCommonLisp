@@ -1,3 +1,9 @@
+# Emacs artifacts
+*~
+\#*
+.\#*
+# Vi(m) artifacts
+*.swp
 *.FASL
 *.fasl
 *.lisp-temp
