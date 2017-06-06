@@ -140,13 +140,14 @@
 ;; (b) (defun summit (lst)
 ;;       (let ((x (car lst)))
 ;;         (if (null x)
-;;            (summit (cdr lst))
+;;            (summit (cdr lst)) <- infinite loop because an empty list just
+;;                                  recurses instead of returning a value
 ;;            (+ x (summit (cdr lst))))))
 (defun summit2 (lst)
   (if (null lst)
-      nil
+      0
       (let ((x (car lst)))
-        (if (null x)
+        (if (and (> (length lst) 0)
+                 (null x))
             (summit2 (cdr lst))
             (+ x (summit2 (cdr lst)))))))
-;; TODO
